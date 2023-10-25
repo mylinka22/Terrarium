@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Allow cleartext traffic to the specific IP address -->
+        <domain includeSubdomains="false">192.168.50.160</domain>
+    </domain-config>
+</network-security-config>
