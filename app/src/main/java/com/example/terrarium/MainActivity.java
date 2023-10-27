@@ -15,6 +15,7 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
     private Button button;
     private TextView textView;
+    int bt_res = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,16 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new HttpTask().execute("http://192.168.50.160/L");
+                if (bt_res == 0) {
+                    new HttpTask().execute("http://192.168.50.160/L");
+                    bt_res = 1;
+                    button.setText("on");
+                } else {
+                    new HttpTask().execute("http://192.168.50.160/H");
+                    bt_res = 0;
+                    button.setText("off");
+                }
+
             }
         });
     }
