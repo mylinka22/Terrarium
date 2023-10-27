@@ -22,48 +22,48 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = findViewById(R.id.button);
-        textView = findViewById(R.id.textView);
+//        button = findViewById(R.id.button);
+//        textView = findViewById(R.id.textView);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (bt_res == 0) {
-                    new HttpTask().execute("http://192.168.50.160/L");
-                    bt_res = 1;
-                    button.setText("on");
-                } else {
-                    new HttpTask().execute("http://192.168.50.160/H");
-                    bt_res = 0;
-                    button.setText("off");
-                }
-
-            }
-        });
-    }
-
-    private class HttpTask extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            try {
-                URL url = new URL(params[0]);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("GET");
-
-                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                StringBuilder response = new StringBuilder();
-                String line;
-
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
-                }
-                reader.close();
-                return response.toString();
-            } catch (IOException e) {
-                e.printStackTrace();
-                return "Error: " + e.getMessage();
-            }
-        }
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (bt_res == 0) {
+//                    new HttpTask().execute("http://192.168.50.160/L");
+//                    bt_res = 1;
+//                    button.setText("on");
+//                } else {
+//                    new HttpTask().execute("http://192.168.50.160/H");
+//                    bt_res = 0;
+//                    button.setText("off");
+//                }
+//
+//            }
+//        });
+//    }
+//
+//    private class HttpTask extends AsyncTask<String, Void, String> {
+//        @Override
+//        protected String doInBackground(String... params) {
+//            try {
+//                URL url = new URL(params[0]);
+//                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//                connection.setRequestMethod("GET");
+//
+//                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+//                StringBuilder response = new StringBuilder();
+//                String line;
+//
+//                while ((line = reader.readLine()) != null) {
+//                    response.append(line);
+//                }
+//                reader.close();
+//                return response.toString();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                return "Error: " + e.getMessage();
+//            }
+//        }
 
 //        @Override
 //        protected void onPostExecute(String result) {
